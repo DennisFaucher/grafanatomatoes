@@ -1,0 +1,176 @@
+{
+  "columns": [],
+  "datasource": "InfluxDB",
+  "description": "",
+  "fieldConfig": {
+    "defaults": {
+      "custom": {}
+    },
+    "overrides": []
+  },
+  "fontSize": "80%",
+  "gridPos": {
+    "h": 8,
+    "w": 9,
+    "x": 15,
+    "y": 17
+  },
+  "hideTimeOverride": true,
+  "id": 23763571993,
+  "interval": "",
+  "links": [],
+  "maxPerRow": 2,
+  "pageSize": 7,
+  "scroll": true,
+  "showHeader": true,
+  "sort": {
+    "col": 3,
+    "desc": true
+  },
+  "styles": [
+    {
+      "$$hashKey": "object:2951",
+      "alias": "DVD Release",
+      "align": "left",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 0,
+      "pattern": "dvdReleaseDate",
+      "preserveFormat": false,
+      "thresholds": [],
+      "type": "string",
+      "unit": "none"
+    },
+    {
+      "$$hashKey": "object:2952",
+      "alias": "Movie",
+      "align": "auto",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "pattern": "title",
+      "thresholds": [],
+      "type": "string",
+      "unit": "short"
+    },
+    {
+      "$$hashKey": "object:2953",
+      "alias": "Score",
+      "align": "auto",
+      "colorMode": null,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(245, 54, 54, 0.9)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 2,
+      "pattern": "tomatoScore",
+      "preserveFormat": false,
+      "rangeMaps": [],
+      "sanitize": false,
+      "thresholds": [
+        ""
+      ],
+      "type": "string",
+      "unit": "short",
+      "valueMaps": []
+    },
+    {
+      "$$hashKey": "object:2958",
+      "alias": "",
+      "align": "auto",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 1,
+      "pattern": "distinct",
+      "thresholds": [],
+      "type": "hidden",
+      "unit": "short"
+    },
+    {
+      "$$hashKey": "object:1639",
+      "alias": "",
+      "align": "auto",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 1,
+      "pattern": "Time",
+      "thresholds": [],
+      "type": "hidden",
+      "unit": "short"
+    }
+  ],
+  "targets": [
+    {
+      "groupBy": [
+        {
+          "params": [
+            "title"
+          ],
+          "type": "tag"
+        },
+        {
+          "params": [
+            "tomatoScore"
+          ],
+          "type": "tag"
+        },
+        {
+          "params": [
+            "dvdReleaseDate"
+          ],
+          "type": "tag"
+        }
+      ],
+      "measurement": "tomatoe_stats",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "refId": "A",
+      "resultFormat": "table",
+      "select": [
+        [
+          {
+            "params": [
+              "id"
+            ],
+            "type": "field"
+          },
+          {
+            "params": [],
+            "type": "distinct"
+          }
+        ]
+      ],
+      "tags": []
+    }
+  ],
+  "timeFrom": "30s",
+  "timeShift": null,
+  "title": "Rotten Tomatoes",
+  "transform": "table",
+  "type": "table-old"
+}
