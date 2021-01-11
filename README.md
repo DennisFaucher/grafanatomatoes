@@ -10,4 +10,5 @@ I have been adding Plex stats to my latest Grafana dashboard and thought an upda
 * Add tomatoes.conf to /etc/telegraf/telegraf.d directory
 * Test with "telegraf --config /etc/telegraf/telegraf.d/tomatoes.conf --test"
 * Restart telegraf
-* Add a new panel in your Grafana dashboard and use the 
+* Add a new panel in your Grafana dashboard and use the dashboard.json
+* Enjoy
